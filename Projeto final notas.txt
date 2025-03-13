@@ -1,0 +1,45 @@
+
+
+Frontend:
+1- Login/ Cadastro
+	/ Feed /Tweets de terceiro em timeline (ordem decrescente)
+	/ Tweet / 
+
+
+Backend:
+1- Cadastro de usuários
+2- Login
+3- Feed de tweets
+4- Post de tweets
+
+
+Banco de dados:
+Sugerido: Postgres, por ser simples.
+
+Posso utilizar SQLite? É o suprassumo da simplicidade.
+
+
+Olá Raphael da Silva Bouças,
+
+Entendo suas dúvidas e vou procurar ajudar da melhor maneira.
+
+Tecnologias: Você tem a liberdade de usar tecnologias que considerar mais práticas para o seu projeto. Se optar por utilizar Django puro, isso pode ser aceitável, contanto que você atenda às funcionalidades requeridas. Entretanto, integrar o Django REST Framework (DRF) pode ser um diferencial especialmente se o objetivo for construir uma API robusta.
+
+Entrega: Geralmente, para o projeto final, você deve:
+
+Subir o projeto no seu repositório do GitHub.
+Realizar o deploy da aplicação, preferencialmente em uma plataforma como PythonAnywhere, e fornecer o link para o mesmo.
+Banco de Dados: O PostgreSQL é a sugestão do curso, pois é uma solução mais robusta para ambientes de produção. No entanto, se você preferir usar SQLite por simplicidade, fique à vontade, tendo em mente que essa escolha pode não proporcionar a mesma experiência em termos de aprendizado sobre configuração de um banco de dado em cenários de produção.
+
+Requisitos Essenciais: O projeto deve incluir funcionalidades básicas que você aprendeu ao longo do módulo, como:
+
+CRUD (Create, Read, Update, Delete)
+Se houver integração entre frontend e backend, esta deve ser bem executada.
+Testes adequados para garantir a estabilidade da aplicação.
+Banco de dados configurado conforme discutido (mesmo que seja SQLite pela simplicidade).
+Documentação é, sem dúvida, essencial e vital para evitar qualquer retrabalho, por isso, gostaria de orientar que, ao longo do desenvolvimento, você documente suas escolhas tecnológicas e o funcionamento da aplicação no repositório do GitHub.
+
+Se precisar de mais orientações ou se ainda tiver dúvidas, sinta-se à vontade para entrar em contato novamente.
+
+Atenciosamente,
+Amigobô.
