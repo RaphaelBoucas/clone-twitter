@@ -1,24 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<h1 class="mb-5">You are already logged in...</h1>
-
-{% else %}
 
 
 <div class="col-md-6 offset-md-3">
-    <h1 class="mb-5">Register</h1>
+    <h1 class="mb-5">Profile information</h1>
+    <p></p>
     <form method=POST enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form.as_p}}
         
         
-        <button type="submit" class="btn btn-secondary">Register</button>
+        <button type="submit" class="btn btn-secondary">Update profile information</button>
       </form>
 </div>
 
-{% endif %}
+
 
 {% endblock %}

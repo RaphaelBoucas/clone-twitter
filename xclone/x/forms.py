@@ -46,55 +46,7 @@ class SignUpForm(UserCreationForm):
         }
     ))
 
-    profile_image = forms.ImageField(label="Profile picture", 
-                             widget=forms.ClearableFileInput(
-        attrs={
-            'class':'form-control mt-2 ',
-            
-        }
-    )
-    )
-
-    profile_bio = forms.CharField(label="Profile bio", 
-                                 max_length= 500,
-                                 widget=forms.Textarea(
-        attrs={
-            'class':'form-control mt-2',
-            
-        }
-    ))
-    homepage_link = forms.CharField(label="Homepage", 
-                                 max_length= 150,
-                                 widget=forms.TextInput(
-        attrs={
-            'class':'form-control mt-2',
-            
-        }
-    ))
-    facebook_link = forms.CharField(label="Facebook", 
-                                 max_length= 150,
-                                 widget=forms.TextInput(
-        attrs={
-            'class':'form-control mt-2',
-            
-        }
-    ))
-    instagram_link = forms.CharField(label="Instagram", 
-                                 max_length= 150,
-                                 widget=forms.TextInput(
-        attrs={
-            'class':'form-control mt-2',
-            
-        }
-    ))
-    linkedin_link = forms.CharField(label="Linkedin", 
-                                 max_length= 150,
-                                 widget=forms.TextInput(
-        attrs={
-            'class':'form-control mt-2',
-            
-        }
-    ))
+    
 
 
     class Meta:
@@ -105,12 +57,7 @@ class SignUpForm(UserCreationForm):
                   'email', 
                   'password1', 
                   'password2', 
-                  'profile_image', 
-                  'profile_bio',
-                  'homepage_link',
-                  'facebook_link',
-                  'instagram_link',
-                  'linkedin_link',
+
                   )
 
     def __init__(self, *args, **kwargs):
@@ -137,6 +84,7 @@ class SignUpForm(UserCreationForm):
             raise forms.ValidationError("A user with that username already exists.")
         return username
     
+
 
 
 # class UpdateUserForm(UserChangeForm):
@@ -207,3 +155,71 @@ class SignUpForm(UserCreationForm):
 #         return username
 
 
+
+
+class UpdateUserForm(UserChangeForm):
+    password = forms.CharField(widget=forms.HiddenInput(), required=False)
+
+    profile_image = forms.ImageField(label="Profile picture", 
+                             widget=forms.ClearableFileInput(
+        attrs={
+            'class':'form-control mt-2 ',
+            
+        }
+    )
+    )
+
+    profile_bio = forms.CharField(label="Profile bio", 
+                                 max_length= 500,
+                                 widget=forms.Textarea(
+        attrs={
+            'class':'form-control mt-2',
+            
+        }
+    ))
+    homepage_link = forms.CharField(label="Homepage", 
+                                 max_length= 150,
+                                 widget=forms.TextInput(
+        attrs={
+            'class':'form-control mt-2',
+            
+        }
+    ))
+    facebook_link = forms.CharField(label="Facebook", 
+                                 max_length= 150,
+                                 widget=forms.TextInput(
+        attrs={
+            'class':'form-control mt-2',
+            
+        }
+    ))
+    instagram_link = forms.CharField(label="Instagram", 
+                                 max_length= 150,
+                                 widget=forms.TextInput(
+        attrs={
+            'class':'form-control mt-2',
+            
+        }
+    ))
+    linkedin_link = forms.CharField(label="Linkedin", 
+                                 max_length= 150,
+                                 widget=forms.TextInput(
+        attrs={
+            'class':'form-control mt-2',
+            
+        }
+    ))
+
+
+    class Meta:
+        model = CustomUser
+        fields = ( 
+                  'profile_image', 
+                  'profile_bio',
+                  'homepage_link',
+                  'facebook_link',
+                  'instagram_link',
+                  'linkedin_link',
+                  )
+
+    

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import CustomUser, Tweet
-from .forms import TweetForm, SignUpForm
+from .forms import TweetForm, SignUpForm, UpdateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
@@ -117,17 +117,31 @@ def update_user(request):
         if form.is_valid():
             form.save()
             login(request, current_user)
-            messages.success(request, ("Your profile has been updated..."))
+            messages.success(request, ("Your profile settings has been updated..."))
             return redirect('home')
-
-
-
-
         return  render (request, "update_user.html", {"current_user" : current_user, 'form': form})
     else:
         messages.success(request, ("You must be logget to see this page..."))
         return redirect('home')
-    
+
+
+def update_profile(request):
+
+    if request.user.is_authenticated:
+        current_user = CustomUser.objects.get(id = request.user.id)
+        form = UpdateUserForm(request.POST or None, request.FILES or None, instance=current_user)
+        if form.is_valid():
+            form.save()
+            login(request, current_user)
+            messages.success(request, ("Your profile has been updated..."))
+            return redirect('home')
+        return  render (request, "update_profile.html", {"current_user" : current_user, 'form': form})
+    else:
+        messages.success(request, ("You must be logget to see this page..."))
+        return redirect('home')
+
+
+
 
 
 def tweet_like(request, pk):
@@ -240,8 +254,9 @@ def delete_tweet(request, pk):
 
 def edit_tweet(request, pk):
     if request.user.is_authenticated:
+        tweet = get_object_or_404(Tweet, id=pk)
         if request.user.username == tweet.user.username:
-            tweet = get_object_or_404(Tweet, id=pk)
+            
             form = TweetForm(request.POST or None, instance=tweet)
             if request.method == "POST":
                 if form.is_valid():
